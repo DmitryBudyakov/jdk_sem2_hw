@@ -1,6 +1,7 @@
 package server.client;
 
 import server.server.Server;
+import server.server.ServerGUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,19 +19,19 @@ public class ClientGUI extends JFrame implements ClientView {
 
     private Client client;
 
-    public ClientGUI(Server server) {
-        this.client = new Client(this, server);
+    public ClientGUI(ServerGUI serverGUI) {
+        this.client = new Client(this, serverGUI.getServer());
 
         setSize(WIDTH, HEIGHT);
         setResizable(false);
         setTitle("Chat client #" + Client.count);
         if (Client.count == 1) {
-            setLocation(server.getServerGuiX() - 400, server.getServerGuiY());
+            setLocation(serverGUI.getX() - 400, serverGUI.getY());
         } else if (Client.count == 2) {
-            setLocation(server.getServerGuiX() + 400, server.getServerGuiY());
+            setLocation(serverGUI.getX() + 400, serverGUI.getY());
         } else {
             for (int i = 2; i < Client.count; i++) {
-                setLocation(server.getServerGuiX() - 400 + 10 * i, server.getServerGuiY() + 30 * i);
+                setLocation(serverGUI.getX() - 400 + 10 * i, serverGUI.getY() + 30 * i);
             }
         }
 

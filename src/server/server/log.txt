@@ -23,3 +23,5 @@ Ivan Ivanovich: test
 Ivan Ivanovich: hi
 Ivan Ivanovich: byebye
 petrov: чао all
+Ivan Ivanovich: hi hi
+petrov: привет!

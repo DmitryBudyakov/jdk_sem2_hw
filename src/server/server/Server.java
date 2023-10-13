@@ -6,25 +6,25 @@ import java.util.List;
 
 public class Server {
     List<Client> clientList;
-    ServerGUI serverGUI;
+//    ServerGUI serverGUI;
     ServerView serverView;  // для связи с методами ServerGUI, реализованными через ServerView
     Repository repository;  // для связи с методами Storage, реализованными через Repository
     boolean work;
 
-    public Server(){
+    public Server(ServerView serverView, Repository repository){
         clientList = new ArrayList<>();
-        this.serverGUI = new ServerGUI(this);
-        this.serverView = serverGUI;
-        this.repository = new Storage();
+//        this.serverGUI = new ServerGUI(this);
+        this.serverView = serverView;
+        this.repository = repository;
     }
 
-    public int getServerGuiX() {
-        return serverGUI.getX();
-    }
-
-    public int getServerGuiY() {
-        return serverGUI.getY();
-    }
+//    public int getServerGuiX() {
+//        return serverGUI.getX();
+//    }
+//
+//    public int getServerGuiY() {
+//        return serverGUI.getY();
+//    }
 
     public boolean connectUser(Client client) {
         if (!work) {
@@ -35,6 +35,7 @@ public class Server {
     }
 
     public String getHistory() {
+//        return repository.readLog();
         return repository.readLog();
     }
 

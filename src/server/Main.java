@@ -2,11 +2,12 @@ package server;
 
 import server.client.ClientGUI;
 import server.server.Server;
+import server.server.ServerGUI;
 
 public class Main {
     public static void main(String[] args) {
-        Server server = new Server();
-        new ClientGUI(server);
-        new ClientGUI(server);
+        ServerGUI serverGUI = new ServerGUI();
+        new ClientGUI(serverGUI);
+        new ClientGUI(serverGUI);
     }
 }

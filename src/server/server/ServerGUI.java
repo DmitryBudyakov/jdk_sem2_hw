@@ -11,10 +11,10 @@ public class ServerGUI extends JFrame implements ServerView{
 
     JButton btnStart, btnStop;
     JTextArea log;
-    Server server;
+    private Server server;
 
-    public ServerGUI(Server server) {
-        this.server = server;
+    public ServerGUI() {
+        this.server = new Server(this, new Storage());
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(WIDTH, HEIGHT);
@@ -23,6 +23,10 @@ public class ServerGUI extends JFrame implements ServerView{
         setLocationRelativeTo(null);
         createPanel();
         setVisible(true);
+    }
+
+    public Server getServer(){
+        return this.server;
     }
 
     @Override
